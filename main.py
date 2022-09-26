@@ -8,6 +8,7 @@ number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 symbol = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+', '_', '=', '[', ']', '{', '}', ';', ',', '.', '/', '<', '>']
 
+
 lower_count = 0
 upper_count = 0
 number_count = 0
@@ -15,34 +16,33 @@ symbol_count = 0
 
 while (lower_count == 0 or upper_count == 0 or number_count == 0 or symbol_count == 0 ):
 
+  lower_count = 0
+  upper_count = 0
+  number_count = 0
+  symbol_count = 0
+
   all = lower + upper + number + symbol
 
   password_array = random.sample(all, 16)
 
   password = "".join(password_array)
-  print(password, end=" ")
+  # print(password, end=" ")
 
 
   for i in range(1, len(lower)):
     if lower[i] in password:
       lower_count += 1
 
-  print('lower:', lower_count, end=" ")
-
   for i in range(1, len(upper)):
     if upper[i] in password:
       upper_count += 1
-
-  print('upper:', upper_count, end=" ")
 
   for i in range(1, len(number)):  
     if number[i] in password:
       number_count += 1
 
-  print('number:', number_count, end=" ")
-
   for i in range(1, len(symbol)):  
     if symbol[i] in password:
       symbol_count += 1
 
-  print('symbol:', symbol_count)
+print(f'{password} lower: {lower_count} upper: {upper_count} number: {number_count} symbol: {symbol_count}')
